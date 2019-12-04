@@ -8,6 +8,10 @@ import * as bodyParser from "koa-bodyparser";
 const app = new Koa();
 const router = new Router();
 
+interface PostRequest {
+    name: string;
+};
+
 //Ping endpoint
 router.get("/ping", async (ctx, next) => {
     ctx.body = { msg: "Pong" };
@@ -16,8 +20,8 @@ router.get("/ping", async (ctx, next) => {
 });
 
 router.post("/posting", async (ctx, next) => {
-    const data = ctx.request.body;
-    ctx.body = data;
+    const data = <PostRequest>ctx.request.body;
+    ctx.body = { name: data.name };
     await next();
 })
 
