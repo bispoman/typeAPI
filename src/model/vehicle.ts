@@ -1,4 +1,4 @@
-export interface Vehicle {
+export default interface Vehicle {
     name: string;
     cost: number;
     crew: number;

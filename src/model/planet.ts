@@ -1,4 +1,4 @@
-export interface Planet {
+export default interface Planet {
     name: string;
     climate: string;
     terrain: string;
