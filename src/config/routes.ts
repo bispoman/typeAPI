@@ -11,21 +11,21 @@ router.get("/ping", async (ctx, next) => {
 });
 
 router.get("/char/:num", async (ctx, next) => {
-    const findName = ctx.params.get('num');
+    const findNum = ctx.params.get('num');
     //mandar pro service de busca na swapi
 })
 
 router.get("/planet/:num", async (ctx, next) => {
-    const findName = ctx.params.get('num');
+    const findNum = ctx.params.get('num');
     //mandar pro service de busca na swapi
 })
 
 router.get("/starship/:num", async (ctx, next) => {
-    const findName = ctx.params.get('num');
+    const findNum = ctx.params.get('num');
     //mandar pro service de busca na swapi
 });
 
 router.get("/vehicle/:num", async (ctx, next) => {
-    const findName = ctx.params.get('num');
+    const findNum = ctx.params.get('num');
     //mandar pro service de busca na swapi
 })
