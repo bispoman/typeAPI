@@ -24,8 +24,3 @@ router.get("/starship/:num", async (ctx, next) => {
     const findNum = ctx.params.get('num');
     //mandar pro service de busca na swapi
 });
-
-router.get("/vehicle/:num", async (ctx, next) => {
-    const findNum = ctx.params.get('num');
-    //mandar pro service de busca na swapi
-})
