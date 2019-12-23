@@ -63,7 +63,7 @@ export function getStarship(num) {
             model: response.data.get("model"),
             lenght: response.data.get("lenght"),
             crew: response.data.get("crew"),
-            starship_class: response.data.get("starship_class");
+            starship_class: response.data.get("starship_class")
         } as Starship
     })
     .catch(function (response) {
