@@ -32,6 +32,7 @@ axios.get("https://swapi.co/api/people/" + charNumber)
 })
 .catch(function (response) {
     console.log(response);
+    return "{}";
 })
 }
 
@@ -50,6 +51,7 @@ export function getPlanet(num) {
     })
     .catch(function (response) {
         console.log(response);
+        return "{}";
     })
 }
 
@@ -68,5 +70,6 @@ export function getStarship(num) {
     })
     .catch(function (response) {
         console.log(response);
+        return "{}";
     })
 }
