@@ -1,75 +1,69 @@
 import axios from 'axios';
-import Character from '../model/character';
-import Planet from '../model/planet';
-import Starship from '../model/starship';
 
-export function validateReturns(num) {
-    if (num != null) {
-        var parsedInt = Number(num);
-        if (!isNaN(parsedInt)) {
-            return true;
-        }
+export async function getCharacters(num):Promise<any> {
+    var charNumber = Number(num);
+    let response: any;
+
+    try {
+        axios.get("https://swapi.co/api/people" + charNumber)
+        .then( this.response = response );
+    } catch (error) {
+        const errozinho = new Error('defaultError');
+        errozinho.message = error.body;
+        throw errozinho;
     }
-    return false;
-}
 
-export function getCharacters(num) {
-var charNumber = Number(num);
-axios.get("https://swapi.co/api/people/" + charNumber)
-.then(function (response){
-    console.log(response);
-    let charObj = {
-        name: response.data.get("name"),
-        height: response.data.get("name"),
-        mass: response.data.get("mass"),
-        hair_color: response.data.get("hair_color"),
-        skin_color: response.data.get("skin_color"),
-        eye_color: response.data.get("eye_ color"),
-        gender: response.data.get("gender"),
-        homeworld: response.data.get("homeworld")
-    } as Character;
-    return charObj;
-})
-.catch(function (response) {
-    console.log(response);
-    return "{}";
-})
+    return {
+        name: response.data.name,
+        height: response.data.height,
+        mass: response.data.mass,
+        hair_color: response.data.hair_color,
+        skin_color: response.data.skin_color,
+        eye_color: response.data.eye_color,
+        gender: response.data.gender,
+        homeworld: response.data.homeworld
+    }
 }
 
 export function getPlanet(num) {
     var planetNumber = Number(num);
-    axios.get("https://swapi.co/api/planets/"+ planetNumber)
-    .then(function (response) {
-        console.log(response);
-        let planetObj = {
-            name: response.data.get("name"),
-            climate: response.data.get("climate"),
-            terrain: response.data.get("terrain"),
-            population: response.data.get("population")
-        }as Planet;
-        return planetObj;
-    })
-    .catch(function (response) {
-        console.log(response);
-        return "{}";
-    })
+    let response: any;
+
+    try {
+        axios.get("https://swapi.co/api/planets/"+ planetNumber)
+        .then( this.response = response );
+    } catch(error) {
+        const errozinho = new Error('defaultError');
+        errozinho.message = error.body;
+        throw errozinho;
+    }
+
+    return {
+        name: response.data.name,
+        climate: response.data.climate,
+        terrain: response.data.terrain,
+        population: response.data.population
+    }
 }
 
 export function getStarship(num) {
     var shipNumber = Number(num);
-    axios.get("https://swapi.co/api/starships/" + shipNumber)
-    .then(function (response) {
-        console.log(response);
-        let shipObj = {
-            name: response.data.get("name"),
-            model: response.data.get("model"),
-            lenght: response.data.get("lenght"),
-            crew: response.data.get("crew"),
-            starship_class: response.data.get("starship_class")
-        } as Starship
-    })
-    .catch(function (response) {
-        console.log(response);
-        return "{}";
-    })
+    let response: any;
+    
+    try{
+        axios.get("https://swapi.co/api/starships/" + shipNumber)
+        .then( this.response = response );
+    } catch(error) {
+        const errozinho = new Error('defaultError');
+        errozinho.message = error.body;
+        throw errozinho;
+    }
+
+    return {
+        name: response.data.name,
+        model: response.data.model,
+        lenght: response.data.lenght,
+        crew: response.data.crew,
+        starship_class: response.data.starship_class
+    }
 }

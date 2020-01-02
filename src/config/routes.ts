@@ -11,30 +11,18 @@ router.get("/ping", async (ctx, next) => {
 
 router.get("/char/:num", async (ctx, next) => {
     const findNum = ctx.params.get('num');
-    if (!(accessService.validateReturns(findNum))) {
-        ctx.status = 400;
-    } else {
-        ctx.body = accessService.getCharacters(findNum);
-        ctx.status = 200;
-    }
+    
+    return ctx.finish(accessService.getCharacters(findNum));
 })
 
 router.get("/planet/:num", async (ctx, next) => {
     const findNum = ctx.params.get('num');
-    if (!(accessService.validateReturns(findNum))) {
-        ctx.status = 400;
-    } else {
-        ctx.body = accessService.getPlanet(findNum);
-        ctx.status = 200;
-    }
-})
+
+    return ctx.finish(accessService.getPlanet(findNum));
+});
 
 router.get("/starship/:num", async (ctx, next) => {
     const findNum = ctx.params.get('num');
-    if (!(accessService.validateReturns(findNum))) {
-        ctx.status = 400;
-    } else {
-        ctx.body = accessService.getStarship(findNum);
-        ctx.status = 200;
-    }
+    
+    return ctx.finish(accessService.getStarship(findNum));
 });
