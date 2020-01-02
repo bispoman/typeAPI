@@ -19,9 +19,10 @@
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.1",
     "koa-router": "^7.4.0",
+    "nock": "^11.7.0",
+    "supertest": "^4.0.2",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2",
-    "typescript-eslint": "^0.0.1-alpha.0",
-    "test": "jest"
+    "typescript-eslint": "^0.0.1-alpha.0"
   }
 }
