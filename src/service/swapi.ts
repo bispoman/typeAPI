@@ -1,12 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosAdapter, AxiosResponse } from 'axios';
 
 export async function getCharacters(num):Promise<any> {
     var charNumber = Number(num);
     let response: any;
 
     try {
-        axios.get("https://swapi.co/api/people" + charNumber)
-        .then( this.response = response );
+        response = await axios.get("https://swapi.co/api/people" + charNumber)
     } catch (error) {
         const errozinho = new Error('defaultError');
         errozinho.message = error.body;

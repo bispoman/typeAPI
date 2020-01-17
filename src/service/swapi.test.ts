@@ -10,6 +10,7 @@ test('charactersReturn', async() => {
         .get('/people/1')
         .reply(200, swapiReturn);
 
-    const data = await swapi.getCharacters(1);
-    expect(data).toEqual(filteredReturn);
+    let returnes = await swapi.getCharacters(1);
+    console.log(returnes);
+    expect(returnes).toEqual(filteredReturn);
 });
